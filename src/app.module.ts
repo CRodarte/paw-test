@@ -1,9 +1,11 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { MongooseModule } from '@nestjs/mongoose';
+import { RolesModule } from './roles/roles.module';
 
 @Module({
-  imports: [],
+  imports: [MongooseModule.forRoot('mongodb+srv://m001-student:iZC6eHvzsZlgQwg8@sandbox.6stqh.mongodb.net/test'), RolesModule],
   controllers: [AppController],
   providers: [AppService],
 })

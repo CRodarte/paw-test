@@ -5,7 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { RolesModule } from './roles/roles.module';
 
 @Module({
-  imports: [MongooseModule.forRoot('mongodb+srv://m001-student:iZC6eHvzsZlgQwg8@sandbox.6stqh.mongodb.net/test'), RolesModule],
+  imports: [MongooseModule.forRoot('mongodb+srv://m001-student:iZC6eHvzsZlgQwg8@sandbox.6stqh.mongodb.net/paw-test?retryWrites=true&w=majority'), RolesModule], 
   controllers: [AppController],
   providers: [AppService],
 })

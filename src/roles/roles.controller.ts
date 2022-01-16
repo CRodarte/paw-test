@@ -43,13 +43,11 @@ export class RolesController {
         @Body('name') name: string,
         @Body('description') description: string,
     ) {
-        await this.rolesService.updateRole(id, name, description);
-        return null;
+        return await this.rolesService.updateRole(id, name, description);
     }
 
     @Delete(':id')
     async removeRole(@Param('id') id: string) {
-        await this.rolesService.deleteRole(id);
-        return null;
+        return await this.rolesService.deleteRole(id);
     }
 }

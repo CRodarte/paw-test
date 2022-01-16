@@ -23,7 +23,7 @@ export class RolesService {
         const roles = await this.roleModel.find().exec();
         return roles.map(role => ({
             id: role.id,
-            title: role.name,
+            name: role.name,
             description: role.description,
         }));
     }
@@ -32,7 +32,7 @@ export class RolesService {
         const role = await this.findRole(id);
         return {
             id: role.id,
-            title: role.name,
+            name: role.name,
             description: role.description,
         };
     }
@@ -50,11 +50,14 @@ export class RolesService {
             updatedRole.description = description;
         }
         updatedRole.save();
+        return updatedRole;
     }
 
     async deleteRole(id: string) {
         const result = await this.roleModel.deleteOne({ _id: id }).exec();
-        console.log(result);
+        if (result.deletedCount === 0) {
+            throw new NotFoundException('Could not find role.');
+        }
     }
 
     private async findRole(id: string): Promise<Role> {

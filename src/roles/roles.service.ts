@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
 
-import { Role } from './role.model';
+import { Role } from '../models/role.model';
 
 @Injectable()
 export class RolesService {
